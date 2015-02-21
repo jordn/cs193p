@@ -37,7 +37,29 @@ class CalculatorBrain {
     
     var description: String {
         get {
-            return "Hello"
+            let (string, remainder) = describe(opStack)
+            return string
+        }
+    }
+    
+    private func describe(ops: [Op]) -> (result: String, remainingOps: [Op]) {
+        if !ops.isEmpty {
+            var remainingOps = ops
+            let op = remainingOps.removeLast()
+            println("op: \(op)")
+            switch op {
+            case .Operand(let operand):
+                return ("\(operand)", [])
+            case .Variable(let variable):
+                return (variable, [])
+            case .UnaryOperation(let symbol, _):
+                let (inside, remaining) = describe(remainingOps)
+                return ("\(symbol)(\(inside))",[])
+            default:
+                return ("arse", [])
+            }
+        } else  {
+            return ("Empty yo", [])
         }
     }
     
@@ -56,8 +78,6 @@ class CalculatorBrain {
         self.variableValues["x"] = 35.0
         self.pushOperand("x")
     }
-    
-    
     
     func pushOperand(operand: Double) -> Double? {
         opStack.append(Op.Operand(operand))
@@ -80,7 +100,6 @@ class CalculatorBrain {
         if !ops.isEmpty {
             var remainingOps = ops
             let op = remainingOps.removeLast()
-
             switch op {
             case .Operand(let operand):
                 return (operand, remainingOps)

@@ -79,14 +79,15 @@ class ViewController: UIViewController {
                 displayValue = 0
             }
         }
-
+        updateDescription();
     }
     
     @IBAction func enter() {
         userIsInTheMiddleOfTypingNumber = false
         if let value = displayValue {
-            let result = brain.pushOperand(value)
-            displayValue = result
+            if let result = brain.pushOperand(value) {
+                displayValue = result
+            }
         } else {
             displayValue = nil
         }
