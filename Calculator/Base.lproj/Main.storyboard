@@ -239,6 +239,14 @@
                                     <action selector="clearAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c9g-gW-eHb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuI-fj-NcJ">
+                                <rect key="frame" x="371" y="337" width="64" height="64"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <state key="normal" title="x">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -258,7 +266,7 @@
                     </view>
                     <connections>
                         <outlet property="display" destination="wQK-2f-NP9" id="TzF-5y-VuT"/>
-                        <outlet property="history" destination="1T6-y2-qyP" id="ZjB-bu-LdA"/>
+                        <outlet property="history" destination="1T6-y2-qyP" id="SCT-2q-gUc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

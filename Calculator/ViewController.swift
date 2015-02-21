@@ -14,8 +14,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var history: UILabel!
     
     var userIsInTheMiddleOfTypingNumber = false
-    
     var brain = CalculatorBrain()
+    
+    var displayValue: Double? {
+        get {
+            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+        }
+        set {
+            if newValue != nil {
+                display.text = "\(newValue!)"
+            } else {
+                display.text = " "
+            }
+            userIsInTheMiddleOfTypingNumber = false
+        }
+    }
+    
+    func updateDescription() {
+        history.text = brain.description
+    }
+    
     
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
@@ -31,7 +49,6 @@ class ViewController: UIViewController {
             userIsInTheMiddleOfTypingNumber = true
         }
         
-        history.text = history.text! + digit
         println("digit = \(digit)")
         
     }
@@ -59,20 +76,21 @@ class ViewController: UIViewController {
             if let result = brain.performOperation(operation) {
                 displayValue = result
             } else {
-                displayValue = nil // :(
+                displayValue = 0
             }
-            history.text = history.text! + operation
         }
 
     }
     
     @IBAction func enter() {
         userIsInTheMiddleOfTypingNumber = false
-        if let result = brain.pushOperand(displayValue!) {
+        if let value = displayValue {
+            let result = brain.pushOperand(value)
             displayValue = result
         } else {
-            displayValue = nil //Want to set displayvalue to nil (better: error message)
+            displayValue = nil
         }
+        updateDescription();
     }
     
     @IBAction func clearAll(sender: UIButton) {
@@ -82,15 +100,5 @@ class ViewController: UIViewController {
         userIsInTheMiddleOfTypingNumber = false
     }
     
-    
-    var displayValue: Double? {
-        get {
-            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
-        }
-        set {
-            display.text = "\(newValue)"
-            userIsInTheMiddleOfTypingNumber = false
-        }
-    }
 }
 

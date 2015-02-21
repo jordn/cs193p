@@ -12,6 +12,7 @@ class CalculatorBrain {
     
     private enum Op: Printable {
         case Operand(Double)
+        case Variable(String)
         case UnaryOperation(String, Double -> Double)
         case BinaryOperation(String, (Double, Double) -> Double)
         
@@ -20,6 +21,8 @@ class CalculatorBrain {
                 switch self {
                 case .Operand(let operand):
                     return "\(operand)"
+                case .Variable(let variable):
+                    return variable
                 case .UnaryOperation(let symbol, _):
                     return symbol
                 case .BinaryOperation(let symbol, _):
@@ -30,6 +33,13 @@ class CalculatorBrain {
     }
     private var opStack = [Op]()
     private var knownOps = [String:Op]()
+    private var variableValues = [String:Double]()
+    
+    var description: String {
+        get {
+            return "Hello"
+        }
+    }
     
     init() {
         func learnOp(op: Op) {
@@ -42,10 +52,20 @@ class CalculatorBrain {
         learnOp(Op.UnaryOperation("√", sqrt ))
         learnOp(Op.UnaryOperation("sin", sin ))
         learnOp(Op.UnaryOperation("cos", sin ))
+
+        self.variableValues["x"] = 35.0
+        self.pushOperand("x")
     }
+    
+    
     
     func pushOperand(operand: Double) -> Double? {
         opStack.append(Op.Operand(operand))
+        return evaluate()
+    }
+
+    func pushOperand(symbol: String) -> Double? {
+        opStack.append(Op.Variable(symbol))
         return evaluate()
     }
     
@@ -64,6 +84,12 @@ class CalculatorBrain {
             switch op {
             case .Operand(let operand):
                 return (operand, remainingOps)
+            case .Variable(let variable):
+                if let value = self.variableValues[variable] {
+                    return (value, remainingOps)
+                } else {
+                    return (nil, remainingOps)
+                }
             case .UnaryOperation(_, let operation):
                 let operandEvaluation = evaluate(remainingOps)
                 if let operand = operandEvaluation.result {
@@ -78,7 +104,6 @@ class CalculatorBrain {
                     }
                 }
             }
-            
         }
         return (nil, ops)
     }
