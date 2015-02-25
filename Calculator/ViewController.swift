@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }
     
     func updateDescription() {
-        history.text = brain.description
+        history.text = brain.description + "\n="
     }
     
     
@@ -53,19 +53,36 @@ class ViewController: UIViewController {
         
     }
     
-    
+
     @IBAction func addContantToOperandStack(sender: UIButton) {
         
         if userIsInTheMiddleOfTypingNumber {
             enter()
+            userIsInTheMiddleOfTypingNumber = false;
         }
         
         let constant = sender.currentTitle!
         switch constant {
-            case "π": display.text = "\(M_PI)"
-            default: break
+        case "π":
+            brain.pushOperand("π", value: M_PI)
+        default: break
         }
-        enter()
+        updateDescription()
+    }
+    
+    @IBAction func addVariableToOperandStack(sender: UIButton) {
+        if userIsInTheMiddleOfTypingNumber {
+            enter()
+            userIsInTheMiddleOfTypingNumber = false;
+        }
+        brain.pushOperand("M")
+        updateDescription()
+    }
+
+    @IBAction func updateMemory(sender: UIButton) {
+        userIsInTheMiddleOfTypingNumber = false;
+        displayValue = brain.updateVariable("M", value: displayValue!)
+        updateDescription()
     }
     
     @IBAction func operate(sender: UIButton) {
@@ -73,31 +90,30 @@ class ViewController: UIViewController {
             enter()
         }
         if let operation = sender.currentTitle {
-            if let result = brain.performOperation(operation) {
-                displayValue = result
-            } else {
-                displayValue = 0
-            }
+            let result = brain.performOperation(operation)
+            displayValue = result
         }
         updateDescription();
     }
     
     @IBAction func enter() {
-        userIsInTheMiddleOfTypingNumber = false
-        if let value = displayValue {
-            if let result = brain.pushOperand(value) {
-                displayValue = result
+        if userIsInTheMiddleOfTypingNumber {
+            userIsInTheMiddleOfTypingNumber = false
+            if let value = displayValue {
+                if let result = brain.pushOperand(value) {
+                    displayValue = result
+                }
+            } else {
+                displayValue = nil
             }
-        } else {
-            displayValue = nil
         }
         updateDescription();
     }
     
     @IBAction func clearAll(sender: UIButton) {
-        display.text = "\(0)"
-        history.text = ""
-//        operandStack = Array<Double>()
+        display.text = " "
+        history.text = " "
+        brain.clear()
         userIsInTheMiddleOfTypingNumber = false
     }
     

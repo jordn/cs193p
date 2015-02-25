@@ -173,6 +173,26 @@
                                     <action selector="addContantToOperandStack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l5A-wt-74J"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdL-0y-jhx">
+                                <rect key="frame" x="376" y="193" width="64" height="64"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="→M">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateMemory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ItC-NT-fU6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcv-FY-jg4">
+                                <rect key="frame" x="376" y="265" width="64" height="64"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="M">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addVariableToOperandStack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PTi-nZ-8cY"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHC-qV-Jk4">
                                 <rect key="frame" x="304" y="265" width="64" height="64"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
