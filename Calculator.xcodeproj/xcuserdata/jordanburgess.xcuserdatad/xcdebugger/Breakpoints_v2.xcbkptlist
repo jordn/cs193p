@@ -20,29 +20,85 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Calculator.ViewController.__deallocating_deinit"
+                  symbolName = "Calculator.CalculatorViewController.display.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
                   moduleName = "Calculator"
-                  urlString = "file:///Users/jordanburgess/Projects/Calculator/Calculator/ViewController.swift"
-                  timestampString = "446597050.144719"
+                  urlString = "file:///Users/jordanburgess/Projects/Calculator/Calculator/CalculatorViewController.swift"
+                  timestampString = "448037121.091399"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "11"
-                  endingLineNumber = "11"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Calculator.CalculatorViewController.display.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
+                  moduleName = "Calculator"
+                  urlString = "file:///Users/jordanburgess/Projects/Calculator/Calculator/CalculatorViewController.swift"
+                  timestampString = "448037121.091685"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
                   offsetFromSymbolStart = "16">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "@objc Calculator.ViewController.__ivar_destroyer"
+                  symbolName = "Calculator.CalculatorViewController.display.materializeForSet : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
                   moduleName = "Calculator"
-                  urlString = "file:///Users/jordanburgess/Projects/Calculator/Calculator/ViewController.swift"
-                  timestampString = "446597050.144885"
+                  urlString = "file:///Users/jordanburgess/Projects/Calculator/Calculator/CalculatorViewController.swift"
+                  timestampString = "448037121.09185"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "11"
-                  endingLineNumber = "11"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Calculator.CalculatorViewController.init (Calculator.CalculatorViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; Calculator.CalculatorViewController"
+                  moduleName = "Calculator"
+                  urlString = "file:///Users/jordanburgess/Projects/Calculator/Calculator/CalculatorViewController.swift"
+                  timestampString = "448037121.092012"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "53">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Calculator.CalculatorViewController.init (Calculator.CalculatorViewController.Type)() -&gt; Calculator.CalculatorViewController"
+                  moduleName = "Calculator"
+                  urlString = "file:///Users/jordanburgess/Projects/Calculator/Calculator/CalculatorViewController.swift"
+                  timestampString = "448037121.09217"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
                   offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Calculator.CalculatorViewController.init (Calculator.CalculatorViewController.Type)(coder : ObjectiveC.NSCoder) -&gt; Calculator.CalculatorViewController"
+                  moduleName = "Calculator"
+                  urlString = "file:///Users/jordanburgess/Projects/Calculator/Calculator/CalculatorViewController.swift"
+                  timestampString = "448037121.092325"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "28">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -64,29 +120,85 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Calculator.ViewController.__deallocating_deinit"
+                  symbolName = "Calculator.CalculatorViewController.display.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
                   moduleName = "Calculator"
-                  urlString = "file:///Users/jordanburgess/Projects/Calculator/Calculator/ViewController.swift"
-                  timestampString = "446597050.211193"
+                  urlString = "file:///Users/jordanburgess/Projects/Calculator/Calculator/CalculatorViewController.swift"
+                  timestampString = "448037121.100709"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "11"
-                  endingLineNumber = "11"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Calculator.CalculatorViewController.display.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
+                  moduleName = "Calculator"
+                  urlString = "file:///Users/jordanburgess/Projects/Calculator/Calculator/CalculatorViewController.swift"
+                  timestampString = "448037121.100867"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
                   offsetFromSymbolStart = "16">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "@objc Calculator.ViewController.__ivar_destroyer"
+                  symbolName = "Calculator.CalculatorViewController.display.materializeForSet : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
                   moduleName = "Calculator"
-                  urlString = "file:///Users/jordanburgess/Projects/Calculator/Calculator/ViewController.swift"
-                  timestampString = "446597050.211364"
+                  urlString = "file:///Users/jordanburgess/Projects/Calculator/Calculator/CalculatorViewController.swift"
+                  timestampString = "448037121.100997"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "11"
-                  endingLineNumber = "11"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Calculator.CalculatorViewController.init (Calculator.CalculatorViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; Calculator.CalculatorViewController"
+                  moduleName = "Calculator"
+                  urlString = "file:///Users/jordanburgess/Projects/Calculator/Calculator/CalculatorViewController.swift"
+                  timestampString = "448037121.101123"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "53">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Calculator.CalculatorViewController.init (Calculator.CalculatorViewController.Type)() -&gt; Calculator.CalculatorViewController"
+                  moduleName = "Calculator"
+                  urlString = "file:///Users/jordanburgess/Projects/Calculator/Calculator/CalculatorViewController.swift"
+                  timestampString = "448037121.101245"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
                   offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Calculator.CalculatorViewController.init (Calculator.CalculatorViewController.Type)(coder : ObjectiveC.NSCoder) -&gt; Calculator.CalculatorViewController"
+                  moduleName = "Calculator"
+                  urlString = "file:///Users/jordanburgess/Projects/Calculator/Calculator/CalculatorViewController.swift"
+                  timestampString = "448037121.101367"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "28">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -233,6 +345,22 @@
             endingLineNumber = "45"
             landmarkName = "CalculatorBrain"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Calculator/CalculatorViewController.swift"
+            timestampString = "448036956.599581"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

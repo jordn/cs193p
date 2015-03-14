@@ -14,7 +14,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var history: UILabel!
     
     var userIsInTheMiddleOfTypingNumber = false
-    var brain = CalculatorBrain()
+    private var brain = CalculatorBrain()
     
     var displayValue: Double? {
         get {
@@ -117,5 +117,22 @@ class CalculatorViewController: UIViewController {
         userIsInTheMiddleOfTypingNumber = false
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var destination = segue.destinationViewController as? UIViewController
+        if let nc = destination as? UINavigationController {
+            destination = nc.visibleViewController
+        }
+        if let gvc = destination as? GraphViewController {
+            if let identifier = segue.identifier {
+                switch identifier {
+                    case "show graph":
+                        gvc.title = brain.description.componentsSeparatedByString(", ").last
+                    default:
+                        gvc.title = "Graph"
+                }
+            }
+        }
+    
+    }
 }
 

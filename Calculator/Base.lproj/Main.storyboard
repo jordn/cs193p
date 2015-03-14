@@ -13,14 +13,14 @@
                 <splitViewController id="zJa-67-CQw" sceneMemberID="viewController">
                     <connections>
                         <segue destination="u3r-eT-uec" kind="relationship" relationship="masterViewController" id="3RD-7v-x8l"/>
-                        <segue destination="zFQ-CN-8LB" kind="relationship" relationship="detailViewController" id="UBa-0U-9fK"/>
+                        <segue destination="aHC-gV-WHs" kind="relationship" relationship="detailViewController" id="UBa-0U-9fK"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sSc-0C-kq1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1301" y="238.5"/>
+            <point key="canvasLocation" x="-1121" y="170"/>
         </scene>
-        <!--Calculator View Controller-->
+        <!--Calculator-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CalculatorViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,7 +32,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1T6-y2-qyP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1T6-y2-qyP">
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -606,7 +606,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="zFQ-CN-8LB" kind="showDetail" identifier="Show Graph" id="DMa-il-e16"/>
+                                    <segue destination="aHC-gV-WHs" kind="showDetail" identifier="show graph" id="tAa-vO-9Fw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJL-eX-GJ3">
@@ -623,9 +623,9 @@
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="qEf-wV-Xd9"/>
-                                        <exclude reference="8fk-1E-vfb"/>
                                         <exclude reference="6IQ-34-Srd"/>
+                                        <exclude reference="8fk-1E-vfb"/>
+                                        <exclude reference="qEf-wV-Xd9"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact" misplaced="YES">
@@ -636,8 +636,8 @@
                                 </variation>
                                 <variation key="widthClass=regular">
                                     <mask key="constraints">
-                                        <exclude reference="8fk-1E-vfb"/>
                                         <exclude reference="6IQ-34-Srd"/>
+                                        <exclude reference="8fk-1E-vfb"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=regular" misplaced="YES">
@@ -673,6 +673,12 @@
                                     <rect key="frame" x="16" y="80" width="768" height="40"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lwq-uG-SSD">
+                                <rect key="frame" x="365" y="451" width="85" height="67"/>
+                                <state key="normal" title="Button" image="graph.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1280,13 +1286,6 @@
                                 <exclude reference="WXH-5Q-I2A"/>
                                 <exclude reference="cLB-eO-XuS"/>
                                 <exclude reference="hi4-gx-fPj"/>
-                                <exclude reference="6kV-U3-j0z"/>
-                                <exclude reference="AM9-Ni-viU"/>
-                                <exclude reference="OG4-7w-I4l"/>
-                                <exclude reference="V89-tV-rWD"/>
-                                <exclude reference="dtG-ap-nPj"/>
-                                <exclude reference="k8o-nO-Ptf"/>
-                                <exclude reference="w2E-su-Yqt"/>
                                 <exclude reference="Srz-7G-JY3"/>
                                 <exclude reference="UY5-Sx-me6"/>
                                 <exclude reference="Xdr-uE-mDL"/>
@@ -1297,6 +1296,22 @@
                                 <exclude reference="oUs-Ni-fcV"/>
                                 <exclude reference="uBE-0t-1mG"/>
                                 <exclude reference="zqy-nm-b8Y"/>
+                                <exclude reference="6kV-U3-j0z"/>
+                                <exclude reference="AM9-Ni-viU"/>
+                                <exclude reference="OG4-7w-I4l"/>
+                                <exclude reference="V89-tV-rWD"/>
+                                <exclude reference="dtG-ap-nPj"/>
+                                <exclude reference="k8o-nO-Ptf"/>
+                                <exclude reference="w2E-su-Yqt"/>
+                                <exclude reference="12F-VV-AmT"/>
+                                <exclude reference="69J-1c-hyL"/>
+                                <exclude reference="ISu-to-ifU"/>
+                                <exclude reference="UFf-OI-Bal"/>
+                                <exclude reference="fq6-pa-r37"/>
+                                <exclude reference="kPK-eD-aZt"/>
+                                <exclude reference="oEk-yf-dfI"/>
+                                <exclude reference="puw-At-U92"/>
+                                <exclude reference="v6i-ha-QfP"/>
                                 <exclude reference="HxI-ub-a3t"/>
                                 <exclude reference="Inp-ib-p1Q"/>
                                 <exclude reference="N5z-ve-hY6"/>
@@ -1311,15 +1326,6 @@
                                 <exclude reference="i9G-gw-T63"/>
                                 <exclude reference="ri4-NO-4Ak"/>
                                 <exclude reference="voo-dm-OwA"/>
-                                <exclude reference="12F-VV-AmT"/>
-                                <exclude reference="69J-1c-hyL"/>
-                                <exclude reference="ISu-to-ifU"/>
-                                <exclude reference="UFf-OI-Bal"/>
-                                <exclude reference="fq6-pa-r37"/>
-                                <exclude reference="kPK-eD-aZt"/>
-                                <exclude reference="oEk-yf-dfI"/>
-                                <exclude reference="puw-At-U92"/>
-                                <exclude reference="v6i-ha-QfP"/>
                                 <exclude reference="998-2T-LgJ"/>
                                 <exclude reference="Anp-vj-whL"/>
                                 <exclude reference="K6I-TL-NCO"/>
@@ -1333,6 +1339,18 @@
                                 <exclude reference="m86-5k-Qtq"/>
                                 <exclude reference="qhi-Wg-gNr"/>
                                 <exclude reference="tv9-1q-faQ"/>
+                                <exclude reference="4Oc-D8-dP4"/>
+                                <exclude reference="G72-mx-OCw"/>
+                                <exclude reference="H9B-10-xXc"/>
+                                <exclude reference="HEC-EH-OGv"/>
+                                <exclude reference="HKC-fw-oaG"/>
+                                <exclude reference="KNQ-IL-f0c"/>
+                                <exclude reference="P3t-jd-J3Q"/>
+                                <exclude reference="Zk1-Rx-IhI"/>
+                                <exclude reference="cs8-d3-Cil"/>
+                                <exclude reference="fD2-3q-tOW"/>
+                                <exclude reference="oPa-Ir-Zxn"/>
+                                <exclude reference="pjY-gH-PYR"/>
                                 <exclude reference="3Iy-Tj-5qd"/>
                                 <exclude reference="48W-5Q-5e9"/>
                                 <exclude reference="5Tt-vd-EfJ"/>
@@ -1352,18 +1370,6 @@
                                 <exclude reference="mVp-i2-rpU"/>
                                 <exclude reference="xCh-YG-lPE"/>
                                 <exclude reference="xHo-Bn-BdS"/>
-                                <exclude reference="4Oc-D8-dP4"/>
-                                <exclude reference="G72-mx-OCw"/>
-                                <exclude reference="H9B-10-xXc"/>
-                                <exclude reference="HEC-EH-OGv"/>
-                                <exclude reference="HKC-fw-oaG"/>
-                                <exclude reference="KNQ-IL-f0c"/>
-                                <exclude reference="P3t-jd-J3Q"/>
-                                <exclude reference="Zk1-Rx-IhI"/>
-                                <exclude reference="cs8-d3-Cil"/>
-                                <exclude reference="fD2-3q-tOW"/>
-                                <exclude reference="oPa-Ir-Zxn"/>
-                                <exclude reference="pjY-gH-PYR"/>
                                 <exclude reference="Jux-aY-ZnA"/>
                                 <exclude reference="N40-LG-kqP"/>
                                 <exclude reference="N9R-y5-qGs"/>
@@ -1438,7 +1444,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="Q4H-cJ-snX"/>
+                    <navigationItem key="navigationItem" title="Calculator" id="Q4H-cJ-snX"/>
                     <connections>
                         <outlet property="display" destination="wQK-2f-NP9" id="TzF-5y-VuT"/>
                         <outlet property="history" destination="Rls-z7-8eg" id="qE0-bd-4Oy"/>
@@ -1446,9 +1452,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="500" y="195"/>
+            <point key="canvasLocation" x="474" y="170"/>
         </scene>
-        <!--Graph View Controller-->
+        <!--Graph-->
         <scene sceneID="j7p-ms-DXH">
             <objects>
                 <viewController id="zFQ-CN-8LB" customClass="GraphViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -1459,20 +1465,13 @@
                     <view key="view" contentMode="scaleToFill" id="zQz-E7-aae">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Graph" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VuC-tw-B0h">
-                                <rect key="frame" x="43" y="86" width="568" height="32"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Graph" id="aEk-As-7kt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2bz-SQ-txB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-41" y="1037"/>
+            <point key="canvasLocation" x="474" y="947"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eaB-bb-Jxi">
@@ -1492,8 +1491,29 @@
             </objects>
             <point key="canvasLocation" x="-314" y="170.25"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hZa-FQ-DjA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aHC-gV-WHs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ujR-N1-18O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zFQ-CN-8LB" kind="relationship" relationship="rootViewController" id="zVW-HJ-Olh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7JY-Uj-S2T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-330" y="947"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="graph.png" width="196" height="196"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DMa-il-e16"/>
+        <segue reference="tAa-vO-9Fw"/>
     </inferredMetricsTieBreakers>
 </document>
