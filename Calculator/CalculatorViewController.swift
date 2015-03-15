@@ -127,6 +127,7 @@ class CalculatorViewController: UIViewController {
                 switch identifier {
                     case "show graph":
                         gvc.title = brain.description.componentsSeparatedByString(", ").last
+                        gvc.program = brain.program
                     default:
                         gvc.title = "Graph"
                 }

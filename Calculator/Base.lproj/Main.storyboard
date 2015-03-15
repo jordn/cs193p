@@ -673,12 +673,6 @@
                                     <rect key="frame" x="16" y="80" width="768" height="40"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lwq-uG-SSD">
-                                <rect key="frame" x="365" y="451" width="85" height="67"/>
-                                <state key="normal" title="Button" image="graph.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1465,11 +1459,31 @@
                     <view key="view" contentMode="scaleToFill" id="zQz-E7-aae">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cat-MO-hyq" customClass="GraphView" customModule="Calculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.17999999999999999" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="G3w-vi-oXc" appends="YES" id="fjj-N6-YZw"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Cat-MO-hyq" firstAttribute="leading" secondItem="zQz-E7-aae" secondAttribute="leading" id="1La-2a-Mw4"/>
+                            <constraint firstItem="Cat-MO-hyq" firstAttribute="bottom" secondItem="D8e-Go-JHi" secondAttribute="top" id="NpZ-Sn-eYI"/>
+                            <constraint firstItem="Cat-MO-hyq" firstAttribute="top" secondItem="zQz-E7-aae" secondAttribute="top" id="byf-yA-MyP"/>
+                            <constraint firstAttribute="trailing" secondItem="Cat-MO-hyq" secondAttribute="trailing" id="tvW-3B-HBK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Graph" id="aEk-As-7kt"/>
+                    <connections>
+                        <outlet property="graphView" destination="Cat-MO-hyq" id="IDx-SJ-qcm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2bz-SQ-txB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="G3w-vi-oXc"/>
             </objects>
             <point key="canvasLocation" x="474" y="947"/>
         </scene>
@@ -1510,10 +1524,7 @@
             <point key="canvasLocation" x="-330" y="947"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="graph.png" width="196" height="196"/>
-    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tAa-vO-9Fw"/>
+        <segue reference="UBa-0U-9fK"/>
     </inferredMetricsTieBreakers>
 </document>

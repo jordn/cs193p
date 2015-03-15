@@ -97,9 +97,29 @@ class CalculatorBrain {
         learnOp(Op.UnaryOperation("√", sqrt ))
         learnOp(Op.UnaryOperation("sin", sin ))
         learnOp(Op.UnaryOperation("cos", sin ))
-
-//        self.variableValues["x"] = 35.0
-//        self.pushOperand("x")
+    }
+    
+    typealias PropertyList = AnyObject
+    var program: PropertyList { // guaranteed to be a property list
+        get {
+            return opStack.map{ $0.description }
+        }
+        set {
+            if let opSymbols = newValue as? Array<String> {
+                var newOpStack = [Op]()
+                let numberFormatter = NSNumberFormatter()
+                for opSymbol in opSymbols {
+                    if let op = knownOps[opSymbol] {
+                        newOpStack.append(op)
+                    } else if let operand = numberFormatter.numberFromString(opSymbol)?.doubleValue {
+                        newOpStack.append(.Operand(operand))
+                    } else {
+                        newOpStack.append(.Variable(opSymbol))
+                    }
+                }
+                opStack = newOpStack
+            }
+        }
     }
     
     func clear() {
