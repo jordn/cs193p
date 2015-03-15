@@ -62,13 +62,17 @@ class GraphView: UIView {
             point.x = CGFloat(x) / contentScaleFactor
             if let y = dataSource?.yForX(self, x: (point.x - origin.x)/scale) {
                 if y.isNormal || y.isZero {
-                    point.y = origin.y - y * scale // CGFloat(y) / contentScaleFactor
+                    point.y = origin.y - y * scale
                     if firstValue {
                         path.moveToPoint(point)
                         firstValue = false
                     } else {
                         path.addLineToPoint(point)
                     }
+                } else {
+                    // Discontinuity – start new line
+                    point.y = CGFloat()
+                    path.moveToPoint(point)
                 }
             }
         }
