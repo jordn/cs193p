@@ -14,9 +14,9 @@ protocol GraphViewDataSource: class {
 
 @IBDesignable
 class GraphView: UIView {
-    
-    weak var dataSource: GraphViewDataSource?
 
+    weak var dataSource: GraphViewDataSource?
+    
     @IBInspectable
     var scale: CGFloat = 50.0 { didSet { setNeedsDisplay() } }
     
@@ -42,6 +42,9 @@ class GraphView: UIView {
         }
     }
     
+    var snapshot: UIView?
+    
+    
     override func drawRect(rect: CGRect) {
         println("\(contentScaleFactor)")
         
@@ -58,6 +61,7 @@ class GraphView: UIView {
         path.lineWidth = lineWidth
         var firstValue = true
         var point = CGPoint()
+        
         for var x = 0; x <= Int(bounds.size.width * contentScaleFactor); x++ {
             point.x = CGFloat(x) / contentScaleFactor
             if let y = dataSource?.yForX(self, x: (point.x - origin.x)/scale) {
@@ -70,7 +74,7 @@ class GraphView: UIView {
                         path.addLineToPoint(point)
                     }
                 } else {
-                    // Discontinuity – start new line
+                    // Discontinuity
                     point.y = CGFloat()
                     path.moveToPoint(point)
                 }
@@ -80,18 +84,48 @@ class GraphView: UIView {
     }
     
     func scale(gesture: UIPinchGestureRecognizer) {
-        if gesture.state == .Changed {
-            scale *= gesture.scale
+        switch gesture.state {
+        case .Began:
+            snapshot = snapshotViewAfterScreenUpdates(false)
+            snapshot!.alpha = 0.8
+            self.addSubview(snapshot!)
+        case .Changed:
+            let touch = gesture.locationInView(self)
+            snapshot?.frame.size.height *= gesture.scale
+            snapshot?.frame.size.width *= gesture.scale
+            snapshot!.frame.origin.x = snapshot!.frame.origin.x * gesture.scale + (1 - gesture.scale) * touch.x
+            snapshot!.frame.origin.y = snapshot!.frame.origin.y * gesture.scale + (1 - gesture.scale) * touch.y
             gesture.scale = 1
+        case .Ended:
+            let changedScale = snapshot!.frame.height / self.frame.height
+            scale *= changedScale
+            origin.x = origin.x * changedScale + snapshot!.frame.origin.x
+            origin.y = origin.y * changedScale + snapshot!.frame.origin.y
+            snapshot!.removeFromSuperview()
+
+        default:
+            break
         }
     }
 
     func pan(gesture: UIPanGestureRecognizer) {
-        if gesture.state == .Changed {
+        switch gesture.state {
+        case .Began:
+            snapshot = snapshotViewAfterScreenUpdates(false)
+            snapshot!.alpha = 0.8
+            self.addSubview(snapshot!)
+        case .Changed:
             let translation = gesture.translationInView(self)
-            origin.x += translation.x
-            origin.y += translation.y
+            snapshot?.center.x += translation.x
+            snapshot?.center.y += translation.y
             gesture.setTranslation(CGPointZero, inView: self)
+        case .Ended:
+            origin.x = snapshot!.center.x
+            origin.y = snapshot!.center.y
+            self.alpha  = 1
+            snapshot?.removeFromSuperview()
+        default:
+            break
         }
     }
     
