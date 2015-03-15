@@ -74,10 +74,11 @@ class GraphView: UIView {
                         path.addLineToPoint(point)
                     }
                 } else {
-                    // Discontinuity
-                    point.y = CGFloat()
-                    path.moveToPoint(point)
+                    firstValue = true
+                    continue
                 }
+            } else {
+                firstValue = true
             }
         }
         path.stroke()
