@@ -75,5 +75,24 @@ class GraphView: UIView {
         path.stroke()
     }
     
+    func scale(gesture: UIPinchGestureRecognizer) {
+        if gesture.state == .Changed {
+            scale *= gesture.scale
+            gesture.scale = 1
+        }
+    }
+
+    func pan(gesture: UIPanGestureRecognizer) {
+        if gesture.state == .Changed {
+            let translation = gesture.translationInView(self)
+            origin.x += translation.x
+            origin.y += translation.y
+            gesture.setTranslation(CGPointZero, inView: self)
+        }
+    }
+    
+    func center(gesture: UITapGestureRecognizer) {
+        origin = gesture.locationInView(self)
+    }
 
 }

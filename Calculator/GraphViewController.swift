@@ -30,12 +30,21 @@ class GraphViewController: UIViewController, GraphViewDataSource {
         }
     }
     
-    @IBOutlet weak var graphView: GraphView!
+    
+    @IBOutlet weak var graphView: GraphView! {
+        didSet {
+            graphView.dataSource = self
+            graphView.addGestureRecognizer(UIPinchGestureRecognizer(target: graphView, action: "scale:"))
+            graphView.addGestureRecognizer(UIPanGestureRecognizer(target: graphView, action: "pan:"))
+            let tap = UITapGestureRecognizer(target: graphView, action: "center:")
+            tap.numberOfTapsRequired = 2
+            graphView.addGestureRecognizer(tap)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        graphView.dataSource = self;
-    }
 
+    }
     
 }

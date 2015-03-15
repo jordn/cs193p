@@ -1464,9 +1464,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="0.17999999999999999" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="G3w-vi-oXc" appends="YES" id="fjj-N6-YZw"/>
-                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1483,7 +1480,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2bz-SQ-txB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pinchGestureRecognizer id="G3w-vi-oXc"/>
             </objects>
             <point key="canvasLocation" x="474" y="947"/>
         </scene>
