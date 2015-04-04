@@ -33,7 +33,8 @@ public struct User: Printable
                 self.verified = verified
             }
             if let urlString = data?.valueForKeyPath(TwitterKey.ProfileImageURL) as? String {
-                self.profileImageURL = NSURL(string: urlString)
+                let bigImageUrlString = urlString.stringByReplacingOccurrencesOfString("_normal", withString: "_bigger")
+                self.profileImageURL = NSURL(string: bigImageUrlString)
             }
         } else {
             return nil

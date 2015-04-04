@@ -17,9 +17,15 @@ class TweetTableViewCell: UITableViewCell {
     }
     
     @IBOutlet weak var tweetProfileImageView: UIImageView!
-    @IBOutlet weak var tweetScreenNameLabel: UILabel!
+    @IBOutlet weak var tweetUserNameLabel: UILabel!
     @IBOutlet weak var tweetTextLabel: UILabel!
     @IBOutlet weak var tweetCreatedLabel: UILabel!
+    @IBOutlet weak var tweetScreenNameLabel: UILabel!
+    
+    
+    let hashtagColor = UIColor.grayColor()
+    let urlColor = UIColor(red: 0.24, green: 0.22, blue: 0.94, alpha: 1.0)
+    let userMentionsColor = UIColor(red: 0.99, green: 0.76, blue: 0.23, alpha: 0.99)
     
     func updateUI() {
         
@@ -31,14 +37,29 @@ class TweetTableViewCell: UITableViewCell {
         
         // Load new information from the tweet
         if let tweet = self.tweet {
-            tweetTextLabel?.text = tweet.text
-            if tweetTextLabel?.text != nil {
-                for _ in tweet.media {
-                    tweetTextLabel.text! += " 🍆"
+            
+            println(tweet.userMentions)
+            
+            var tweetText = tweet.text
+            for _ in tweet.media {
+                tweetText += " 🍆"
+            }
+            var attributedText = NSMutableAttributedString(string: tweetText)
+            
+            func applyColor(keywords : [Tweet.IndexedKeyword], color : UIColor) {
+                for keyword in keywords {
+                    attributedText.addAttribute(NSForegroundColorAttributeName, value: color, range: keyword.nsrange)
                 }
             }
+            
+            applyColor(tweet.hashtags, hashtagColor)
+            applyColor(tweet.urls, urlColor)
+            applyColor(tweet.userMentions, userMentionsColor)
         
-            tweetScreenNameLabel?.text = "\(tweet.user)"
+            tweetTextLabel?.attributedText = attributedText
+            
+            tweetUserNameLabel?.text = "\(tweet.user.name)"
+            tweetScreenNameLabel?.text = "@\(tweet.user.screenName)"
             
             if let profileImageURL = tweet.user.profileImageURL {
                 
