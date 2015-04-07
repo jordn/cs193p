@@ -33,8 +33,10 @@ class TweetDetailTableViewController: UITableViewController {
     var tweet: Tweet? {
         didSet {
             displayTweet()
+            
         }
     }
+    
     
     
     func displayTweet() {
@@ -78,35 +80,37 @@ class TweetDetailTableViewController: UITableViewController {
         var text = ""
         
         if let tweet = self.tweet {
-            if indexPath.section == 0 {
-                
-                let cell = tableView.dequeueReusableCellWithIdentifier("image", forIndexPath: indexPath) as UITableViewCell
-                if let imageUrl = tweet.media[indexPath.item].url {
-                    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) { () -> Void in
-                        let imageData = NSData(contentsOfURL: imageUrl)
-                        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                            if imageData != nil {
-                                cell.imageView?.image = UIImage(data: imageData!)
+            switch indexPath.section {
+                case 0:
+                    let cell = tableView.dequeueReusableCellWithIdentifier("image", forIndexPath: indexPath) as UITableViewCell
+                    if let imageUrl = tweet.media[indexPath.item].url {
+                        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) { () -> Void in
+                            let imageData = NSData(contentsOfURL: imageUrl)
+                            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                                if imageData != nil {
+                                    cell.imageView?.image = UIImage(data: imageData!)
+                                }
                             }
                         }
                     }
-                }
-                return cell
-            } else {
-                let cell = tableView.dequeueReusableCellWithIdentifier("text", forIndexPath: indexPath) as UITableViewCell
-                switch indexPath.section {
+                    return cell
                 case 1:
-                    text = "\(tweet.urls[indexPath.item].keyword)"
+                    let cell = tableView.dequeueReusableCellWithIdentifier("url", forIndexPath: indexPath) as UITableViewCell
+                    cell.textLabel?.text = "\(tweet.urls[indexPath.item].keyword)"
+                    return cell
                 case 2:
-                    text = "\(tweet.hashtags[indexPath.item].keyword)"
+                    let cell = tableView.dequeueReusableCellWithIdentifier("text", forIndexPath: indexPath) as UITableViewCell
+                    cell.textLabel?.text = "\(tweet.hashtags[indexPath.item].keyword)"
+                    return cell
                 case 3:
-                    text = "\(tweet.userMentions[indexPath.item].keyword)"
+                    let cell = tableView.dequeueReusableCellWithIdentifier("text", forIndexPath: indexPath) as UITableViewCell
+                    cell.textLabel?.text = "\(tweet.userMentions[indexPath.item].keyword)"
+                    return cell
                 default:
-                    break
-                }
-            cell.textLabel?.text = text
-            return cell
+                    let cell = tableView.dequeueReusableCellWithIdentifier("text", forIndexPath: indexPath) as UITableViewCell
+                    return cell
             }
+
         }
         var cell = tableView.dequeueReusableCellWithIdentifier("text", forIndexPath: indexPath) as UITableViewCell
         return cell
@@ -123,41 +127,65 @@ class TweetDetailTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     
-        return "\(TweetSections(rawValue: section)!)"
-        
-//        if let tweet = self.tweet {
-//            switch section {
-//            case 0:
-//                if (tweet.media.count > 0) {
-//                    return "Media"
-//                }
-//            case 1:
-//                if (tweet.urls.count > 0) {
-//                    return "URLs"
-//                }
-//            case 2:
-//                if (tweet.hashtags.count > 0) {
-//                    return "#Hashtags"
-//                }
-//            case 3:
-//                if (tweet.userMentions.count > 0) {
-//                    return "User mentions"
-//                }
-//            default:
-//                break
-//            }
-//        }
-//        return nil
+        if let tweet = self.tweet {
+            switch section {
+            case 0:
+                if (tweet.media.count > 0) {
+                    return "Media"
+                }
+            case 1:
+                if (tweet.urls.count > 0) {
+                    return "URLs"
+                }
+            case 2:
+                if (tweet.hashtags.count > 0) {
+                    return "#Hashtags"
+                }
+            case 3:
+                if (tweet.userMentions.count > 0) {
+                    return "User mentions"
+                }
+            default:
+                break
+            }
+        }
+        return nil
     }
 
-    /*
     // MARK: - Navigation
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let tweet = self.tweet {
+            switch indexPath.section {
+            case 1:
+                let url = NSURL(string: tweet.urls[indexPath.item].keyword)
+                UIApplication.sharedApplication().openURL(url!)
+            default:
+                break
+            }
+        }
+    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        if let identifer = segue.identifier {
+            switch identifer {
+            case "search":
+                println("search!")
+                println("\(sender)")
+                if let tweetTableVC = segue.destinationViewController as? TweetTableViewController {
+                    if let cell = sender as? UITableViewCell {
+                        println("\(cell)")
+                        tweetTableVC.searchText = cell.textLabel?.text
+                    }
+                }
+            default:
+                println("missing segue")
+                break
+            }
+        }
     }
-    */
 
 }

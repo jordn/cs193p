@@ -15,7 +15,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     
     var tweets = [[Tweet]]()
     
-    var searchText: String? = "#AAPL" {
+    var searchText: String? = "Apple Watch" {
         didSet {
             lastSuccessfulRequest = nil
             searchTextField?.text = searchText
@@ -120,7 +120,6 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     // MARK: -  Segues
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        println("hello preparing")
         if let identifer = segue.identifier {
             switch identifer {
             case "show tweet detail":
@@ -137,7 +136,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
             }
         }
     }
-
+    
     
     /*
     // MARK: - Navigation
